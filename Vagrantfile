@@ -7,6 +7,10 @@ Vagrant.configure('2') do |config|
   config.vm.synced_folder './code', '/home/vagrant/code', nfs: true
 
   config.vm.provision :chef_solo do |chef|
+    chef.json = {
+      repo: 'foo/bar'
+    }
+
     chef.cookbooks_path = ['chef/cookbooks']
     chef.add_recipe 'recipe[cocoon]'
   end
