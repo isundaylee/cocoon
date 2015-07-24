@@ -8,7 +8,15 @@
 #
 # Install Ruby Build Dependencies
 #
-package 'libxslt-dev'
+
+#
+# Update dependencies.
+#
+execute 'apt-get update' do
+  ignore_failure true
+end
+
+package 'libxslt1-dev'
 package 'libxml2-dev'
 package 'build-essential'
 package 'libpq-dev'
