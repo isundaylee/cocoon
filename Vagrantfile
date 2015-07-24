@@ -6,6 +6,8 @@ Vagrant.configure('2') do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.synced_folder './code', '/home/vagrant/code', nfs: true
 
+  config.ssh.forward_agent = true
+
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       repo: 'foo/bar'
